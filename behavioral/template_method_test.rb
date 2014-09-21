@@ -14,6 +14,12 @@ module TemplateMethodTest
     def test_attack_ability
       assert_equal 'Attacked dealing 10 damage', @hero.attack
     end
+
+    def test_unique_greeting_requirement
+      assert_raises(RuntimeError) { @hero.greet }
+    end
+
+
   end
 
   class WarriorTest < MiniTest::Test
@@ -27,6 +33,10 @@ module TemplateMethodTest
 
     def test_special_abilities
       assert @hero.abilities.include?(:strike)
+    end
+
+    def test_greeting_other_characters
+      assert_equal ['Hello', 'Warrior is ready to fight'], @hero.greet
     end
   end
 
