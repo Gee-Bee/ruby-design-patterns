@@ -1,8 +1,13 @@
 class Hero
   attr_reader :damage
 
-  def initialize
-    @damage = 10
+  def initialize occupation = nil
+    case occupation
+    when :warrior
+      @damage = 15
+    else
+      @damage = 10
+    end
   end
 
   def attack
