@@ -16,7 +16,7 @@ module TemplateMethodTest
     end
 
     def test_unique_greeting_requirement
-      assert_raises(RuntimeError) { @hero.greet }
+      assert_raises(NotImplementedError) { @hero.greet }
     end
 
 

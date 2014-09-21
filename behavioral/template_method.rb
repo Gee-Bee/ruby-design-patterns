@@ -38,7 +38,7 @@ class Hero
     end
 
     def unique_greeting_line
-      raise 'You must define unique_greeting_line'
+      raise NotImplementedError
     end
 end
 
