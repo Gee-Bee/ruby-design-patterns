@@ -24,5 +24,23 @@ module TemplateMethodTest
     def test_default_damage_rating
       assert_equal 15, @hero.damage
     end
+
+    def test_special_abilities
+      assert @hero.abilities.include?(:strike)
+    end
+  end
+
+  class MageTest < MiniTest::Test
+    def setup
+      @hero = Hero.new :mage
+    end
+
+    def test_default_damage_rating
+      assert_equal 7, @hero.damage
+    end
+
+    def test_special_abilities
+      assert @hero.abilities.include?(:magic_arrow)
+    end
   end
 end
