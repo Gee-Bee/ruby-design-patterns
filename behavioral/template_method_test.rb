@@ -18,7 +18,7 @@ module TemplateMethodTest
 
   class WarriorTest < MiniTest::Test
     def setup
-      @hero = Hero.new :warrior
+      @hero = Warrior.new
     end
 
     def test_default_damage_rating
@@ -32,7 +32,7 @@ module TemplateMethodTest
 
   class MageTest < MiniTest::Test
     def setup
-      @hero = Hero.new :mage
+      @hero = Mage.new
     end
 
     def test_default_damage_rating
