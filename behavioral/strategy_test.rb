@@ -25,7 +25,7 @@ class HeroTest < MiniTest::Test
       @hero = ::Hero.new ::BattleStats.new
     end
 
-    def test_battle_stats_printing
+    def test_battle_stats_printingn
       assert_equal "Damage: 10\nHealth: 5", @hero.print_stats
     end
 
