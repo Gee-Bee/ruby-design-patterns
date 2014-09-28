@@ -44,7 +44,7 @@ end
 
 class Warrior < Hero
   private
-    def in itialize_stats
+    def initialize_stats
     end
 
     def damage_rating

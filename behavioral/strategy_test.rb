@@ -3,7 +3,7 @@ require_relative 'strategy'
 
 class HeroTest < MiniTest::Test
   def setup
-    @hero = ::Hero.new
+    @hero = ::Hero.new ::BattleStats.new
   end
 
   def test_damage
@@ -22,15 +22,16 @@ class HeroTest < MiniTest::Test
 
   class PrintingCharacterStatsTest < MiniTest::Test
     def setup
-      @hero = ::Hero.new
+      @hero = ::Hero.new ::BattleStats.new
     end
 
-    def test_battle_stats_printing_by_default
+    def test_battle_stats_printing
       assert_equal "Damage: 10\nHealth: 5", @hero.print_stats
     end
 
     def test_skills_priting
-      assert_equal "Stealth\nDriving\nIntimidation\n", @hero.print_stats(:skills)
+      @hero.printer = ::SkillsStats.new
+      assert_equal "Stealth\nDriving\nIntimidation\n", @hero.print_stats
     end
   end
 end
