@@ -28,5 +28,9 @@ class HeroTest < MiniTest::Test
     def test_battle_stats_printing_by_default
       assert_equal "Damage: 10\nHealth: 5", @hero.print_stats
     end
+
+    def test_skills_priting
+      assert_equal "Stealth\nDriving\nIntimidation\n", @hero.print_stats(:skills)
+    end
   end
 end
