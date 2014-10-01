@@ -18,14 +18,39 @@ class Hero
   end
 end
 
-class BattleStats
+module HTMLPrinter
+  # template method
   def print damage, health, skills
-    "Damage: #{damage}\nHealth: #{health}"
+    result = header
+    result += content(damage, health, skills)
+    result += footer
   end
+  private
+    def header
+      '<html>'
+    end
+
+    def content damage, health, skills
+      raise NotImplementedError
+    end
+
+    def footer
+      '</html>'
+    end
+end
+
+class BattleStats
+  include HTMLPrinter
+  private
+    def content damage, health, skills
+      "Damage: #{damage}\nHealth: #{health}"
+    end
 end
 
 class SkillsStats
-  def print damage, health, skills
-    skills.inject('') {|result,skill| result + skill.to_s.capitalize + "\n"}
-  end
+  include HTMLPrinter
+  private
+    def content damage, health, skills
+      skills.inject('') {|result,skill| result + skill.to_s.capitalize + "\n"}
+    end
 end

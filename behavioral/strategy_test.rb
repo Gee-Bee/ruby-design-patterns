@@ -26,12 +26,12 @@ class HeroTest < MiniTest::Test
     end
 
     def test_battle_stats_printing
-      assert_equal "Damage: 10\nHealth: 5", @hero.print_stats
+      assert_equal "<html>Damage: 10\nHealth: 5</html>", @hero.print_stats
     end
 
     def test_skills_priting
       @hero.printer = ::SkillsStats.new
-      assert_equal "Stealth\nDriving\nIntimidation\n", @hero.print_stats
+      assert_equal "<html>Stealth\nDriving\nIntimidation\n</html>", @hero.print_stats
     end
 
     def test_custom_ad_hoc_printer
